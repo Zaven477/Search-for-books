@@ -6,6 +6,7 @@ import { getBooks } from "../store/effects";
 interface IValue {
   value: string;
   filter: string;
+  
 }
 
 export const Pagination = ({ value, filter }: IValue) => {
@@ -15,6 +16,7 @@ export const Pagination = ({ value, filter }: IValue) => {
     const dispatch = useAppDispatch();
 
     const valueOrCategory = value ? value : filter;
+    
 
     const pagination = () => {
         dispatch(getBooks({ value: `${valueOrCategory}`, page: indexPagination }));
