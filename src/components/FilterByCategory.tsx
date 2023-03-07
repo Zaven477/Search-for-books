@@ -17,10 +17,12 @@ export const FilterByCategory = ({ setFilter }: IFilterProps) => {
   };
 
   return (
-    <select
+   <div>
+      <span className="filterCategories">Categories</span>
+      <select
       className="selectForm"
       onChange={(event) => Category(event.target.value)}
-    >
+      >
       <option value="all">all</option>
       <option value="art">art</option>
       <option value="biography">biography</option>
@@ -29,5 +31,6 @@ export const FilterByCategory = ({ setFilter }: IFilterProps) => {
       <option value="medical">medical</option>
       <option value="poetry">poetry</option>
     </select>
+  </div>
   );
 };
