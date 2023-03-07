@@ -11,5 +11,9 @@ export interface IBooks {
 export type TBooksQuery = {
    value: string;
    page: number;
-   filter?: string
+   orderBy?: string
 }
+
+
+
+

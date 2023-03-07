@@ -5,10 +5,10 @@ import { TBooksQuery } from "./types";
 
 export const getBooks = createAsyncThunk(
   "books",
-  async ({ value, page, filter }: TBooksQuery, { dispatch }) => {
+  async ({ value, page, orderBy }: TBooksQuery, { dispatch }) => {
     try {
       dispatch(setLoading(true));
-      const response = await fetchBooks(value, page, filter);
+      const response = await fetchBooks(value, page, orderBy);
       dispatch(setBooks(response.data));
       dispatch(setLoading(false));
     } catch (error) {
@@ -17,3 +17,8 @@ export const getBooks = createAsyncThunk(
     }
   }
 );
+
+
+
+
+
