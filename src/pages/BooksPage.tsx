@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BookList } from "../components/BookList";
 import { BookSearch } from "../components/BookSearch";
+import { BookSorting } from "../components/BookSorting";
 import { FilterByCategory } from "../components/FilterByCategory";
 import { Pagination } from "../components/Pagination";
 import { useAppSelector } from "../hooks";
@@ -18,9 +19,10 @@ export const BooksPage = () => {
       <div className="form">
         <BookSearch value={value} setValue={setValue} />
         <FilterByCategory setFilter={setFilter}/>
+        <BookSorting value={value} />
       </div>
       <BookList books={books} totalBooks={totalBooks} />
-      <Pagination value={value} />
+      <Pagination value={value} filter={filter} />
     </div>
   );
 };
