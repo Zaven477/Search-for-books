@@ -1,37 +1,33 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IBooks } from "../types";
-
+import { IBooks } from "./types";
 
 export type TBooksState = {
-  books: IBooks[];
-  totalItemsBooks: string;
-  values: string;
+  items: IBooks[];
+  totalItems: number;
   loading: boolean;
-  errors: string;
-  currentIndex: number;
-  isButtonDisabled: boolean
-}
-
+  errors: string | null;
+  hasNextPage: boolean;
+};
 
 const initialState: TBooksState = {
-  books: [],
-  totalItemsBooks: "",
-  values: "",
+  items: [],
+  totalItems: 0,
   loading: false,
   errors: "",
-  currentIndex: 30,
-  isButtonDisabled: false
+  hasNextPage: false,
 };
 
 const booksSlice = createSlice({
-  name: "countsBooks",
+  name: "books",
   initialState,
   reducers: {
     resetBooks: (state, action) => {
-      state.books = action.payload;
+      state.items = action.payload;
     },
     setBooks: (state, action) => {
-      state.books = [...state.books, ...action.payload];
+      state.hasNextPage = action.payload.items.length === 30;
+      state.items = [...state.items, ...action.payload.items];
+      state.totalItems = action.payload.totalItems;
     },
     setLoading: (state, action) => {
       state.loading = action.payload;
@@ -39,34 +35,10 @@ const booksSlice = createSlice({
     setErrors: (state, action) => {
       state.errors = action.payload;
     },
-    setValues: (state, action) => {
-      state.values = action.payload;
-    },
-    setTotalItemsBooks: (state, action) => {
-      state.totalItemsBooks = action.payload;
-    },
-    setCurrentIndex: (state, action) => {
-      state.currentIndex = state.currentIndex + action.payload;
-    },
-    resetCurrentIndex: (state) => {
-      state.currentIndex = 30;
-    },
-    setIsButtonDisabled: (state, action) => {
-      state.isButtonDisabled = action.payload;
-    },
   },
 });
 
-export const {
-  setBooks,
-  setLoading,
-  setErrors,
-  setValues,
-  setTotalItemsBooks,
-  setCurrentIndex,
-  resetBooks,
-  setIsButtonDisabled,
-  resetCurrentIndex
-} = booksSlice.actions;
+export const { setBooks, setLoading, setErrors, resetBooks } =
+  booksSlice.actions;
 
 export default booksSlice.reducer;
