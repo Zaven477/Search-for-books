@@ -1,15 +1,19 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { setBooks } from './booksSlice';
-
-
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { fetchBooks } from "../api";
+import { setBooks, setErrors, setLoading } from "./booksSlice";
+import { TBooksQuery } from "./types";
 
 export const getBooks = createAsyncThunk(
-  'books',
-    async({ value, page }, { dispatch }) => {
-        const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${value}&startIndex=${page}&maxResults=30`)
-        const { totalItems, items } = response.data;
-        dispatch(setBooks(items));
+  "books",
+  async ({ value, page, filter }: TBooksQuery, { dispatch }) => {
+    try {
+      dispatch(setLoading(true));
+      const response = await fetchBooks(value, page, filter);
+      dispatch(setBooks(response.data));
+      dispatch(setLoading(false));
+    } catch (error) {
+      dispatch(setLoading(false));
+      dispatch(setErrors(error.message));
     }
-)
-
+  }
+);
