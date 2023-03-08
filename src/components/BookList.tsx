@@ -22,7 +22,7 @@ export const BookList = ({ books, totalBooks }: ICardBookProps) => {
   );
 
   if (loadingError) {
-    return <p className="text-error">{loadingError}</p>;
+    return <p className="text-error">{loadingError}</p>
   }
 
   if (!totalBooks) {
