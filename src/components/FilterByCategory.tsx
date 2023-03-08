@@ -6,7 +6,6 @@ interface IFilterProps {
   setFilter: React.Dispatch<React.SetStateAction<string>>;
 }
 
-
 export const FilterByCategory = ({ setFilter }: IFilterProps) => {
   const dispatch = useAppDispatch();
 
@@ -17,20 +16,20 @@ export const FilterByCategory = ({ setFilter }: IFilterProps) => {
   };
 
   return (
-   <div>
+    <div>
       <span className="filterCategories">Categories</span>
       <select
-      className="selectForm"
-      onChange={(event) => Category(event.target.value)}
+        className="selectForm"
+        onChange={(event) => Category(event.target.value)}
       >
-      <option value="all">all</option>
-      <option value="art">art</option>
-      <option value="biography">biography</option>
-      <option value="computers">computers</option>
-      <option value="history">history</option>
-      <option value="medical">medical</option>
-      <option value="poetry">poetry</option>
-    </select>
-  </div>
+        <option value="all">all</option>
+        <option value="art">art</option>
+        <option value="biography">biography</option>
+        <option value="computers">computers</option>
+        <option value="history">history</option>
+        <option value="medical">medical</option>
+        <option value="poetry">poetry</option>
+      </select>
+    </div>
   );
 };
