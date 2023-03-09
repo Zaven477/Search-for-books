@@ -2,6 +2,7 @@ import { useAppDispatch } from "../hooks";
 import { resetBooks } from "../store/booksSlice";
 import { getBooks } from "../store/effects";
 
+
 interface ISortingProps {
   value: string;
 }
@@ -10,10 +11,10 @@ export const BookSorting = ({ value }: ISortingProps) => {
   const dispatch = useAppDispatch();
 
   const sortBooks = (option: string) => {
-    dispatch(resetBooks([]));
     if (!value) {
-      return;
+      return
     }
+    dispatch(resetBooks([]));
     dispatch(getBooks({ value: value, page: 0, orderBy: option }));
   };
 
