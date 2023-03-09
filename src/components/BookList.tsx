@@ -1,9 +1,9 @@
 import { useAppSelector } from "../hooks";
-import { IBooks } from "../store/types";
+import { IBook } from "../store/types";
 import { CardBook } from "./CardBook";
 
 interface ICardBookProps {
-  books: IBooks[];
+  books: IBook[];
   totalBooks: number;
 }
 
@@ -12,10 +12,10 @@ export const BookList = ({ books, totalBooks }: ICardBookProps) => {
   const loadingError = useAppSelector((state) => state.books.errors);
 
   let uniqueBooksList = books.filter(
-    (book: IBooks, index: number, arr: IBooks[]) =>
+    (book: IBook, index: number, arr: IBook[]) =>
       index ===
       arr.findIndex(
-        (u: IBooks) => JSON.stringify(u.id) === JSON.stringify(book.id)
+        (u: IBook) => JSON.stringify(u.id) === JSON.stringify(book.id)
       )
   );
 
