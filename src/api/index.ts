@@ -13,10 +13,5 @@ export const fetchBooks = async (
   return await axios.get(apiUrl);
 };
 
-
-
-
-
-
-
-
+export const fetchBook = async (id: string) =>
+  await axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`);
