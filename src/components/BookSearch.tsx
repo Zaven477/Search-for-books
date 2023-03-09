@@ -2,6 +2,7 @@ import { FormEvent } from "react";
 import { resetBooks } from "../store/booksSlice";
 import { getBooks } from "../store/effects";
 import { useAppDispatch } from "../hooks";
+import { useEffect } from "react";
 
 interface IValueProps {
   value: string;
@@ -21,6 +22,17 @@ export const BookSearch = ({ value, setValue }: IValueProps) => {
     dispatch(resetBooks([]));
     dispatch(getBooks({ value: value, page: 0 }));
   };
+
+  useEffect(() => {
+    const savedText = localStorage.getItem("text");
+    if (savedText) {
+      setValue(savedText);
+    }
+  }, [setValue]);
+
+  useEffect(() => {
+    localStorage.setItem("text", value);
+  }, [value]);
 
   return (
     <div>
