@@ -13,8 +13,10 @@ export const getBooks = createAsyncThunk(
       dispatch(setBooks(response.data));
       dispatch(setLoading(false));
     } catch (error: unknown) {
-      dispatch(setLoading(false));
-      dispatch(setErrors(error.message));
+      if (error instanceof Error) {
+        dispatch(setLoading(false));
+        dispatch(setErrors(error.message));
+      }
     }
   }
 );
@@ -28,8 +30,10 @@ export const getBook = createAsyncThunk(
       dispatch(setBook(response.data));
       dispatch(setLoadingBook(false));
     } catch (error: unknown) {
-      dispatch(setLoadingBook(false));
-      dispatch(setErrorsBook(error.message));
+      if (error instanceof Error) {
+        dispatch(setLoadingBook(false));
+        dispatch(setErrorsBook(error.message));
+      }
     }
   }
 );
