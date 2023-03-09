@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IBooks } from "./types";
+import { IBook } from "./types";
 
 export type TBooksState = {
-  items: IBooks[];
+  items: IBook[];
   totalItems: number;
   loading: boolean;
   errors: string | null;

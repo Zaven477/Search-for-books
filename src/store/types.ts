@@ -10,7 +10,7 @@ interface IVolumeInfo {
   description?: string;
 }
 
-export interface IBooks {
+export interface IBook {
   kind?: string;
   id?: string;
   etag?: string;
