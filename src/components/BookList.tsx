@@ -5,13 +5,11 @@ import { CardBook } from "./CardBook";
 interface ICardBookProps {
   books: IBooks[];
   totalBooks: number;
-  
 }
 
 export const BookList = ({ books, totalBooks }: ICardBookProps) => {
   const loadingBooks = useAppSelector((state) => state.books.loading);
   const loadingError = useAppSelector((state) => state.books.errors);
-  
 
   let uniqueBooksList = books.filter(
     (book: IBooks, index: number, arr: IBooks[]) =>
@@ -22,14 +20,12 @@ export const BookList = ({ books, totalBooks }: ICardBookProps) => {
   );
 
   if (loadingError) {
-    return <p className="text-error">{loadingError}</p>
+    return <p className="text-error">{loadingError}</p>;
   }
 
   if (!totalBooks) {
     return null;
   }
-
-  
 
   return (
     <div>
