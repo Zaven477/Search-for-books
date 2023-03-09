@@ -1,6 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { IBook } from "./types";
 
-const initialState = {
+type TBookState = {
+  book: IBook | null;
+  loading: boolean;
+  errors: string;
+};
+const initialState: TBookState = {
   book: null,
   loading: false,
   errors: "",
