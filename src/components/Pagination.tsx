@@ -14,6 +14,8 @@ export const Pagination = ({ value, filter }: IValue) => {
   const nextPage = useAppSelector((state) => state.books.hasNextPage);
   const dispatch = useAppDispatch();
 
+  
+
   const valueOrCategory = value ? value : filter;
 
   const pagination = () => {
