@@ -1,0 +1,33 @@
+.flex {
+    display: inline-flex;
+    margin: 50px 2px 0px 50px;
+    padding: 0px 30px 90px 0px;
+    background: #DCDCDC;
+    width: 200px;
+    height: 220px;
+    overflow: auto;
+  }
+
+
+  .item {
+    margin-left: 50px;
+    margin-top: 30px;
+    
+  }
+
+
+  .size {
+    width: 115px;
+    height: 140px;
+  }
+
+  
+  .title-font {
+    font-size: 18px;
+  }
+  
+  .authors-font {
+    font-size: 22px;
+   
+  }
+ 

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./style.css";
 
 interface ICardProps {
   id: string;
@@ -19,11 +20,11 @@ export const CardBook = ({
     <div className="flex">
       <div className="item">
         <Link to={`books/${id}`}>
-          <img src={image} alt="" />
+          <img src={image} alt="" className="size"/>
         </Link>
         <p>{categories}</p>
-        <p>{title}</p>
-        <p>{authors}</p>
+        <p className="title-font">{title}</p>
+        <p className="authors-font">{authors}</p>
       </div>
     </div>
   );
