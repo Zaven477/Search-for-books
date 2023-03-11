@@ -1,7 +1,8 @@
-import { useAppSelector, useAppDispatch } from "../hooks";
+import { useAppSelector, useAppDispatch } from "../../hooks";
 import { useState } from "react";
-import { startIndexPagination } from "../constants";
-import { getBooks } from "../store/effects";
+import { startIndexPagination } from "../../constants";
+import { getBooks } from "../../store/effects";
+import "./style.css";
 
 interface IValue {
   value: string;
@@ -14,8 +15,6 @@ export const Pagination = ({ value, filter }: IValue) => {
   const nextPage = useAppSelector((state) => state.books.hasNextPage);
   const dispatch = useAppDispatch();
 
-  
-
   const valueOrCategory = value ? value : filter;
 
   const pagination = () => {
@@ -24,13 +23,18 @@ export const Pagination = ({ value, filter }: IValue) => {
   };
 
   return (
-    <div>
+    <div className="position">
       {loadingBooks && <p className="text-center">Loading...</p>}
-      {nextPage && (
-        <button className="btn-more" onClick={pagination} disabled={!nextPage}>
-          Load more...
-        </button>
-      )}
+      {nextPage &&
+        !loadingBooks &&(
+          <button
+            className="btn-more"
+            onClick={pagination}
+            disabled={!nextPage}
+          >
+            Load more...
+          </button>
+        )}
     </div>
   );
 };

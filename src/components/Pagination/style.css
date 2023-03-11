@@ -1,0 +1,16 @@
+.position {
+    position: relative;
+  }
+  
+  
+  .btn-more {
+    position: absolute;
+    left: 665px;
+    cursor: pointer;
+    top: 15px;
+    background: #87CEEB;
+    border: none;
+    width: 100px;
+    height: 30px;
+    color: white;
+  }
