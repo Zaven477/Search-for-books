@@ -1,6 +1,7 @@
-import { useAppDispatch } from "../hooks";
-import { resetBooks } from "../store/booksSlice";
-import { getBooks } from "../store/effects";
+import { useAppDispatch } from "../../hooks";
+import { resetBooks } from "../../store/booksSlice";
+import { getBooks } from "../../store/effects";
+import "./style.css";
 
 interface IFilterProps {
   setFilter: React.Dispatch<React.SetStateAction<string>>;

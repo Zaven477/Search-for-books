@@ -1,0 +1,14 @@
+.selectForm {
+    margin-top: 30px;
+    margin-left: -500px;
+    width: 200px;
+    height: 30px;
+  }
+  
+  
+  .filterCategories {
+    position: absolute;
+    left: 290px;
+    top: 182px;
+  }
+  
