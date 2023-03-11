@@ -1,6 +1,7 @@
-import { useAppSelector } from "../hooks";
-import { IBook } from "../store/types";
-import { CardBook } from "./CardBook";
+import { useAppSelector } from "../../hooks";
+import { IBook } from "../../store/types";
+import { CardBook } from "../CardBook/CardBook";
+import "./style.css";
 
 interface ICardBookProps {
   books: IBook[];
