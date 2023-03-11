@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../hooks";
-import { getBook } from "../store/effects";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { getBook } from "../../store/effects";
 import parse from "html-react-parser";
+import "./style.css";
 
 export const BookPage = () => {
   const params = useParams<{ id: string }>();
@@ -18,7 +19,7 @@ export const BookPage = () => {
   }, [id, dispatch]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p className="loading-book">Loading...</p>;
   }
 
   if (error) {
@@ -29,13 +30,15 @@ export const BookPage = () => {
 
   return (
     <div>
-      <img src={book.volumeInfo?.imageLinks?.smallThumbnail} alt="" />
-      <p>{book.volumeInfo?.title}</p>
-      <p>{book.volumeInfo?.categories}</p>
-      <p>{book.volumeInfo?.authors}</p>
-      <p>
+      <img src={book.volumeInfo?.imageLinks?.smallThumbnail} alt=""  className="image"/>
+      <div className="indent">
+       <p>{book.volumeInfo?.title}</p>
+       <p>{book.volumeInfo?.categories}</p>
+       <p>{book.volumeInfo?.authors}</p>
+       <p>
         {book.volumeInfo?.description && parse(book.volumeInfo?.description)}
-      </p>
+       </p>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,19 @@
+.image {
+    position: absolute;
+    top: 25px;
+    left: 600px;
+    width: 115px;
+    height: 140px;
+  }
+  
+  .indent {
+    padding-top: 250px;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  
+  
+  .loading-book {
+    text-align: center;
+  }
+  
